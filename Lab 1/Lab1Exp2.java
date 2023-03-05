@@ -10,6 +10,8 @@ import java.util.Random;
  * 
  * a. Read the code for those methods - what are the differences? Which one
  *    would you have written if we'd asked you to?
+ //  the first one 
+ //
  * b. Compare the time required by the three methods for various values of n. 
  *    Are they always similar? Remember to make n large enough that 
  *    significant time is required.
@@ -20,19 +22,16 @@ import java.util.Random;
  * @author Michael Albert
  */
 public class Lab1Exp2 {
-
+  static final double milli = 1000000;
   static final Random R = new Random();
 
   public static void main(String[] args) {
     // Write and run your experiments here. Remember to use a Timer.    
+    // creating a new timer 
     Timer t1 =  new Timer();
     t1.start();
-    for(int i = 0; i< 100; i++){
-      
-      System.out.println(i);
-
-    }
-    System.out.println(t1.stop());
+    System.out.println(randString1(100));
+    System.out.println(t1.stop()/milli);
   }
 
   static String randString1(int n) {
