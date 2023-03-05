@@ -1,4 +1,4 @@
-package cosc201.lab01;
+
 
 import java.util.Random;
 
@@ -25,6 +25,14 @@ public class Lab1Exp2 {
 
   public static void main(String[] args) {
     // Write and run your experiments here. Remember to use a Timer.    
+    Timer t1 =  new Timer();
+    t1.start();
+    for(int i = 0; i< 100; i++){
+      
+      System.out.println(i);
+
+    }
+    System.out.println(t1.stop());
   }
 
   static String randString1(int n) {
