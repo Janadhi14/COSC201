@@ -8,14 +8,16 @@ import java.util.Random;
  *    and sum(100)? Does that make sense? What \textit{should} the ratio be?
  * // the sum for 1000 takes over 6 times as much but it should be 10 beacuse the for loop is a O(n) function
  * // if we multiply by 10 we should see a proportional change in the time taken for sum1000
- * b. How large do you need to make $n$ before the ratio between the time 
+ *
+ *  b. How large do you need to make $n$ before the ratio between the time 
  *    taken for sum(10*n) and sum(n) approaches what it should be? When you
  *    reach that point, how much total time (roughly) is being used?
- *  	 
+ *  	 the time taken for the sum(10* n) is about 10 times more than for the sum(n)
+ * 
  * 
  * c. What does this say about the design of wall-clock experiments to test 
  *    efficiency?
- * 
+ *  it is not very accurate for processes which take less time but for things that take longer then we are going to see more noticible differences 
  * @author Michael Albert
  */
 public class Lab1Exp1 {
@@ -28,19 +30,21 @@ public class Lab1Exp1 {
     Timer t1  = new Timer();
 
     t1.start();
-    sum(100); // this should return the time it takes to add 100 numbers together so n = 100
+    sum(10000000); // this should return the time it takes to add 100 numbers together so n = 100
     t1.stop();
    
     // creating a new timer for the sum1000
     Timer t2 =  new Timer(); 
     
     t2.start();
-    sum(3000);
+    sum(100000000);
     t2.stop();
 
     double t2timer  = t2.getTime();  
     double t1timer = t1.getTime();
     System.out.println((t2timer/t1timer));
+    System.out.println("sum(100) teh total time is: " + t1.getTotalTime()/milli);
+    System.out.println("sum(1000) teh total time is: " + t2.getTotalTime()/milli);
 
     //timedSum(100.1);
   }

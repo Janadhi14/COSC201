@@ -15,9 +15,13 @@ import java.util.Random;
  * b. Compare the time required by the three methods for various values of n. 
  *    Are they always similar? Remember to make n large enough that 
  *    significant time is required.
+ * 
+ * 
+ * 
  * c. The first method (using basic string concatenation) slows down a lot
  *    as n gets large. Why should that be? What does it say about using string
  *    concatenation in programs in general?
+ * they maby be running on 
  *
  * @author Michael Albert
  */
@@ -30,8 +34,21 @@ public class Lab1Exp2 {
     // creating a new timer 
     Timer t1 =  new Timer();
     t1.start();
-    System.out.println(randString1(100));
+    randString1(10000);
     System.out.println(t1.stop()/milli);
+    // shows down a lot as n n gets larger 
+    
+
+    t1.reset();
+    t1.start();
+    randString2(10000);
+    System.out.println(t1.stop()/milli);
+    t1.reset();
+
+    t1.start();
+    randString3(10000);
+    System.out.println(t1.stop()/milli);
+  
   }
 
   static String randString1(int n) {
