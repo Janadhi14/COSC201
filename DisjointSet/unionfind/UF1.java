@@ -25,6 +25,7 @@ public class UF1 implements UnionFind {
    * Makes a new set of singletons (erases all current information).
    * @param n the number of singletons
    */
+  // creating the new array 
   @Override
   public void make(int n) {
     reps = new int[n];
@@ -50,14 +51,17 @@ public class UF1 implements UnionFind {
    * @param x the first element
    * @param y the second element
    */
+  // union method 
   @Override
   public void union(int x, int y) {
+    // creating new x and y variabels to store the values of the groups at the position
     int rx = reps[x];
     int ry = reps[y];
     if (rx == ry) {
       return;
     }
-    groups--;
+
+    groups--; // decrease the size of the groups i
     for (int i = 0; i < reps.length; i++) {
       if (reps[i] == rx) {
         reps[i] = ry;
