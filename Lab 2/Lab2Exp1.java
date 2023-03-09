@@ -1,4 +1,3 @@
-package cosc201.lab02;
 
 /**
  * Lab 2, Experiment 1
