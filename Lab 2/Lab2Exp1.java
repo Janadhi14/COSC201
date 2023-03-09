@@ -21,13 +21,21 @@ public class Lab2Exp1 {
 
   public static void main(String[] args) {
     // Add your code for doing experiments here.
+
+    Timer t = new Timer();
+    t.start();
+    fibA(1);
+    System.out.println(t.stop());
+
+
   }
    
+
   static long fibRec(int n) {
     if (n <= 1) return 1;
     return fibRec(n-1) + fibRec(n-2);
   }
-  
+ // method for fibA  
   static long fibA(int n) {
     long a = 1;
     long b = 1;
@@ -38,7 +46,7 @@ public class Lab2Exp1 {
     }
     return a;
   }
-  
+// method for fibB  
   static long fibB(int n) {
     long[] result = new long[n+1];
     result[0] = 1;
@@ -52,7 +60,8 @@ public class Lab2Exp1 {
   static long fibC(int n) {
     return fibC(1, 1, n);
   }
-  
+
+  // method for fibC
   static long fibC(int a, int b, int n) {
     if (n == 0) return a;
     return fibC(b, a+b, n-1);
