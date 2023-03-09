@@ -17,19 +17,24 @@
  * @author Michael Albert
  */
 public class Lab2Exp1 {
-
+  static final double milli = 1000000;
   public static void main(String[] args) {
     // Add your code for doing experiments here.
-
+    int x = 45;
     Timer t = new Timer();
     t.start();
-    fibA(1);
-    System.out.println(t.stop());
+    System.out.println("The current fibonacci value " + fibRec(x));
+    fibRec(x);
+    //fibA(x);
+    //fibB(x);
+    //fibC(x);
+    //fibD(x);
+    System.out.println("The time taken is "+ t.stop()/milli);
 
 
   }
    
-
+// method fibRec will retunr the fibonacci for that number
   static long fibRec(int n) {
     if (n <= 1) return 1;
     return fibRec(n-1) + fibRec(n-2);
