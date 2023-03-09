@@ -21,9 +21,9 @@
  * 
  * the limiting condition is the memory for fibA 
  * fibA can work for very large values but the method breaks down once we reach teh upper byte size for long n = 100000000
- * fibB where n =100000000 but any higher it will break beacsue this is the max space and we run out of memory 
- * fibC where n =  
- * fibC(a,b,c) where n  = 
+ * fibB where n =500000000 but any higher it will break beacsue this is the max space and we run out of memory 
+ * fibC where n =  12000 anything avoive we are not going to reach the base case 
+
  * d. Which of the other methods is "best"?
  * 
  * 
@@ -34,15 +34,15 @@ public class Lab2Exp1 {
   static final double milli = 1000000;
   public static void main(String[] args) {
     // Add your code for doing experiments here.
-    int x = 100000000;
+    int x = 12000;
     Timer t = new Timer();
     
-    System.out.println("The current fibonacci value " + fibB(x));
+    System.out.println("The current fibonacci value " + fibC(x));
     t.start();
     //fibRec(x);
     //fibA(x);
-    fibB(x);
-    //fibC(x);
+    //fibB(x);
+    fibC(x);
     //fibD(x);
     System.out.println("The time taken is "+ t.stop()/milli);
 
@@ -83,7 +83,7 @@ public class Lab2Exp1 {
     return fibC(1, 1, n);
   }
 
-  // method for fibC with overlaoding
+  // method for fibC with overlaoding recurssive method 
   static long fibC(int a, int b, int n) {
     if (n == 0) return a;
     return fibC(b, a+b, n-1);
