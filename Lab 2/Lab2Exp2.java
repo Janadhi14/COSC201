@@ -50,14 +50,30 @@ public class Lab2Exp2 {
     }
 
     if (command.equals("Find")) {
+      // will need to call the find method and pass in the values 
+      System.out.println();
+      uf.find(Integer.parseInt(token[1]));
+      // this will call the find method on the array 
       return;
+    
     }
     
     if (command.equals("All")) {
+      // this will return all the different groups that are there 
+      System.out.println(uf.groups());
       return;
+      
     }
-    
+    // a method which will print out the numbers 
+    /* (Stretch goal) Echo the input, followed by a sequence of lines containing each of the sets exactly once (and each in increasing order). Ideally,
+the set containing 0 should be printed first, then the set containing the smallest element not in 0’s set, and so on */
     if (command.equals("Summary")) {
+      // print out the numbers from group 0 first 
+      int num = 
+      for(){
+        System.out.print( num + " " );
+
+      }
       return;
     }
     
@@ -65,3 +81,28 @@ public class Lab2Exp2 {
   }
 
 }
+/*If the input file is:
+5
+Union 2 3
+Union 1 4
+Find 1
+Union 4 0
+All 0
+Find 4
+Summary
+
+Then the output could be (some might depend on the exact choice of algorithm or
+implementation in union-find):
+
+Size 5
+Union 2 3
+Union 1 4
+Find 1: 4
+Union 4 0
+All 0: 0 1 4
+Find 4: 0
+Summary
+0 1 4
+2 3 
+*/
+

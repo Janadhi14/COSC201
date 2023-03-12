@@ -20,13 +20,15 @@
  *    reasonable length of time? What's the limiting condition? 
  * 
  * the limiting condition is the memory for fibA 
- * fibA can work for very large values but the method breaks down once we reach teh upper byte size for long n = 100000000
+ * fibA where n = can work for very large values but the method breaks down once we reach the upper byte size for long n = 100000000
  * fibB where n =500000000 but any higher it will break beacsue this is the max space and we run out of memory 
  * fibC where n =  12000 anything avoive we are not going to reach the base case 
 
  * d. Which of the other methods is "best"?
- * 
- * 
+ * depends on what for 
+ * fibA is teh best for memory wise beasue it is an iterative approach
+ * fibB is the best if
+ * if its time wise metod A is likley to be the fastest beacsue it dont involve creating an array to store values nor does it reuqire recurssive method calls 
  * 
  * @author Michael Albert
  */
@@ -34,15 +36,15 @@ public class Lab2Exp1 {
   static final double milli = 1000000;
   public static void main(String[] args) {
     // Add your code for doing experiments here.
-    int x = 12000;
+    int x = 100000000;
     Timer t = new Timer();
     
-    System.out.println("The current fibonacci value " + fibC(x));
+    System.out.println("The current fibonacci value " + fibA(x));
     t.start();
     //fibRec(x);
-    //fibA(x);
+    fibA(x);
     //fibB(x);
-    fibC(x);
+    //fibC(x);
     //fibD(x);
     System.out.println("The time taken is "+ t.stop()/milli);
 
@@ -68,7 +70,7 @@ public class Lab2Exp1 {
     // setting a equal to b and then be equal to c 
     return a;
   }
-// method for fibB  
+// method for fibB which is an array based approach 
   static long fibB(int n) {
     long[] result = new long[n+1];
     result[0] = 1;
@@ -78,7 +80,7 @@ public class Lab2Exp1 {
     }
     return result[n];
   }
-  
+  // fibC which is a recurssive based approach 
   static long fibC(int n) {
     return fibC(1, 1, n);
   }
