@@ -3,6 +3,7 @@ package cosc201.lab02;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.ArrayLists;
 import cosc201.unionfind.UF1;
 import cosc201.unionfind.UnionFind;
@@ -85,18 +86,25 @@ for i from 0 to n-1:
 Let r = find(i)
 if r is not in seen:
 Add r to seen
-Print All(i) */
+Print All(i)*/
 
-ArrayList<integer> seen  = new ArrayList<>();
-      // now we have to go through a for loop 
+ArrayList<Integer> seen  = new ArrayList<>();
+
+      // now we have to go through a for loop through the reps array 
       for(int i = 0; i < uf.reps.length-1; i++){
+        int r = find(i);
+        if(seen.contains(r)){ // this will check that the item is in there
+          // we want to add r to seen arraylist
+          seen.add(r);
+        }
+        // now we want to print out the values 
+        // we want to for loop through and print the smallest number  
+        System.out.println();
         
 
       }
       return;
     }
-    
-    //
   }
 
 }
