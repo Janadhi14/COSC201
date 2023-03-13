@@ -60,7 +60,16 @@ public class Lab2Exp2 {
     
     if (command.equals("All")) {
       // this will return all the different groups that are there 
-      System.out.println(uf.groups());
+      // need to take in the integer value and print  out all the values within the the group
+      // need to go through the reps array and check if 
+      System.out.print("All: " + token[1] );
+      for(int x: uf.reps){
+        if(uf.reps[x] == Integer.parseInt(token[1])){
+          // printing out the position
+          System.out.print(x + " ");
+        }
+   // else nothing       
+      }
       return;
       
     }
@@ -69,7 +78,8 @@ public class Lab2Exp2 {
 the set containing 0 should be printed first, then the set containing the smallest element not in 0’s set, and so on */
     if (command.equals("Summary")) {
       // print out the numbers from group 0 first 
-      int num = 
+      
+       
       for(){
         System.out.print( num + " " );
 
