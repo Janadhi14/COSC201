@@ -3,7 +3,7 @@ package cosc201.lab02;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
+import java.util.ArrayLists;
 import cosc201.unionfind.UF1;
 import cosc201.unionfind.UnionFind;
 
@@ -57,6 +57,7 @@ public class Lab2Exp2 {
       return;
     
     }
+    // all method
     
     if (command.equals("All")) {
       // this will return all the different groups that are there 
@@ -77,11 +78,19 @@ public class Lab2Exp2 {
     /* (Stretch goal) Echo the input, followed by a sequence of lines containing each of the sets exactly once (and each in increasing order). Ideally,
 the set containing 0 should be printed first, then the set containing the smallest element not in 0’s set, and so on */
     if (command.equals("Summary")) {
-      // print out the numbers from group 0 first 
-      
-       
-      for(){
-        System.out.print( num + " " );
+      /*Summary:
+Initialise an empty arraylist "seen"
+(for the representatives that have been seen)
+for i from 0 to n-1:
+Let r = find(i)
+if r is not in seen:
+Add r to seen
+Print All(i) */
+
+ArrayList<integer> seen  = new ArrayList<>();
+      // now we have to go through a for loop 
+      for(int i = 0; i < uf.reps.length-1; i++){
+        
 
       }
       return;
