@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.ArrayLists;
 import cosc201.unionfind.UF1;
 import cosc201.unionfind.UnionFind;
+import java.util.*;
 
 /**
  * Lab 2, Experiment 2
@@ -87,22 +88,27 @@ Let r = find(i)
 if r is not in seen:
 Add r to seen
 Print All(i)*/
-
+//create an arraylist of integers called seen which will only contain the representatives 
 ArrayList<Integer> seen  = new ArrayList<>();
 
       // now we have to go through a for loop through the reps array 
       for(int i = 0; i < uf.reps.length-1; i++){
         int r = find(i);
-        if(seen.contains(r)){ // this will check that the item is in there
+        if(!seen.contains(r)){ // this will check that the item is in there
           // we want to add r to seen arraylist
           seen.add(r);
         }
         // now we want to print out the values 
         // we want to for loop through and print the smallest number  
-        System.out.println();
+        
         
 
       }
+      // now we wnat to go through and print the indexs of the representatives from smallest to largest 
+      
+      for(int nums: Collections.sort(seen)){
+        System.out.println((nums));
+      };
       return;
     }
   }
