@@ -65,7 +65,7 @@ public class Lab2Exp2 {
       // this will return all the different groups that are there 
       // need to take in the integer value and print  out all the values within the the group
       // need to go through the reps array and check if 
-      System.out.print("All: " + token[1] );
+      System.out.print("All: " + tokens[1] );
       for(int x: uf.reps){
         if(uf.reps[x] == Integer.parseInt(token[1])){
           // printing out the position
