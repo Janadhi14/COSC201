@@ -3,7 +3,7 @@ package cosc201.lab02;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.ArrayList;
+
 import java.util.ArrayLists;
 import cosc201.unionfind.UF1;
 import cosc201.unionfind.UnionFind;
@@ -53,21 +53,19 @@ public class Lab2Exp2 {
 
     if (command.equals("Find")) {
       // will need to call the find method and pass in the values 
-      System.out.println();
-      uf.find(Integer.parseInt(token[1]));
+      System.out.print("Find " + tokens[1] + " " + tokens[2]);
+      System.out.print(": " + uf.find(Integer.parseInt(tokens[1])));
       // this will call the find method on the array 
       return;
-    
+      
     }
     // all method
     
     if (command.equals("All")) {
-      // this will return all the different groups that are there 
-      // need to take in the integer value and print  out all the values within the the group
-      // need to go through the reps array and check if 
-      System.out.print("All: " + token[1] );
+      // this will print out all teh values that are in teh group 0
+      System.out.print("All: " + tokens[1] );
       for(int x: uf.reps){
-        if(uf.reps[x] == Integer.parseInt(token[1])){
+        if(uf.reps[x] == Integer.parseInt(tokens[1])){
           // printing out the position
           System.out.print(x + " ");
         }
@@ -79,7 +77,8 @@ public class Lab2Exp2 {
     // a method which will print out the numbers 
     /* (Stretch goal) Echo the input, followed by a sequence of lines containing each of the sets exactly once (and each in increasing order). Ideally,
 the set containing 0 should be printed first, then the set containing the smallest element not in 0’s set, and so on */
-    if (command.equals("Summary")) {
+    
+if (command.equals("Summary")) {
       /*Summary:
 Initialise an empty arraylist "seen"
 (for the representatives that have been seen)
@@ -89,6 +88,8 @@ if r is not in seen:
 Add r to seen
 Print All(i)*/
 //create an arraylist of integers called seen which will only contain the representatives 
+
+
 ArrayList<Integer> seen  = new ArrayList<>();
 
       // now we have to go through a for loop through the reps array 
@@ -106,14 +107,26 @@ ArrayList<Integer> seen  = new ArrayList<>();
       }
       // now we wnat to go through and print the indexs of the representatives from smallest to largest 
       
-      for(int nums: Collections.sort(seen)){
-        System.out.println((nums));
-      };
+      ArrayList<Integer> sortedSeen  = new ArrayList<>();
+
+      // need to create a new array 
+      int [] sortedSeenArray  = new SortedSeenArray[sortedSeen.size()]; 
+      sortedSeen = ArrayCollections.sort(seen);
+      sortedSeenArray = sortedSeen.toArray();
+      // now we are going to use the values in the arraylist to call all on 
+      for(int i = 0; i < sortedSeenArray.length; i ++){
+        if(sortedSeenArray[i] == Integer.parseInt(tokens[1])){
+          // printing out the position
+          System.out.print(sortedSeenArray[i] + " ");
+        
+        }
+
       return;
     }
   }
 
 }
+// expected output 
 /*If the input file is:
 5
 Union 2 3
