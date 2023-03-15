@@ -72,8 +72,9 @@ public class Lab2Exp2 {
       }
       return;
     }
-    // a method which will print out the numbers 
-    /* (Stretch goal) Echo the input, followed by a sequence of lines containing each of the sets exactly once (and each in increasing order). Ideally,
+
+ // a method which will print out the numbers 
+/* (Stretch goal) Echo the input, followed by a sequence of lines containing each of the sets exactly once (and each in increasing order). Ideally,
 the set containing 0 should be printed first, then the set containing the smallest element not in 0’s set, and so on */
     
 if (command.equals("Summary")) {
@@ -94,20 +95,17 @@ if (command.equals("Summary")) {
   // Now we are going to use the values in the arraylist to call all on
   System.out.println("Summary: ");
   for (int i = 0; i < sortedSeenArray.length; i++) {
-      // If the seen sorted array at the given position then we are going to go through a for loop which will print out the values that are in that group
-      
-          
-              // Printing out the position
-              System.out.println(uf.find(sortedSeenArray[i]) + " ");
-          
-      }
+    // If the seen sorted array at the given position then we are going to go through a for loop which will print out the values that are in that group
+    // Printing out the position
+    System.out.println(uf.find(sortedSeenArray[i]) + " ");
+    }
   }
   return;
 }
 
   }
 
-}
+
 
 
 // expected output 
