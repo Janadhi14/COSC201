@@ -92,13 +92,14 @@ if (command.equals("Summary")) {
   Integer[] sortedSeenArray = seen.toArray(new Integer[0]);
 
   // Now we are going to use the values in the arraylist to call all on
+  System.out.println("Summary: ");
   for (int i = 0; i < sortedSeenArray.length; i++) {
       // If the seen sorted array at the given position then we are going to go through a for loop which will print out the values that are in that group
-      for (int j = 0; j < uf.reps.length; j++) {
-          if (uf.find(j) == sortedSeenArray[i]) {
+      
+          
               // Printing out the position
-              System.out.print(j + " ");
-          }
+              System.out.println(uf.find(sortedSeenArray[i]) + " ");
+          
       }
   }
   return;
