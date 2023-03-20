@@ -64,68 +64,50 @@ public class Lab2Exp2 {
     if (command.equals("All")) {
       // this will print out all teh values that are in teh group 0
       System.out.print("All: " + tokens[1] );
-      for(int x: uf.reps){
-        if(uf.reps[x] == Integer.parseInt(tokens[1])){
+      for(int i: uf.reps){
+        if(uf.reps[i] == Integer.parseInt(tokens[1])){
           // printing out the position
-          System.out.print(x + " ");
+          System.out.print(i + " ");
         }
-   // else nothing       
       }
       return;
-      
     }
-    // a method which will print out the numbers 
-    /* (Stretch goal) Echo the input, followed by a sequence of lines containing each of the sets exactly once (and each in increasing order). Ideally,
+
+ // a method which will print out the numbers 
+/* (Stretch goal) Echo the input, followed by a sequence of lines containing each of the sets exactly once (and each in increasing order). Ideally,
 the set containing 0 should be printed first, then the set containing the smallest element not in 0’s set, and so on */
     
 if (command.equals("Summary")) {
-      /*Summary:
-Initialise an empty arraylist "seen"
-(for the representatives that have been seen)
-for i from 0 to n-1:
-Let r = find(i)
-if r is not in seen:
-Add r to seen
-Print All(i)*/
-//create an arraylist of integers called seen which will only contain the representatives 
-
-
-ArrayList<Integer> seen  = new ArrayList<>();
-
-      // now we have to go through a for loop through the reps array 
-      for(int i = 0; i < uf.reps.length-1; i++){
-        int r = find(i);
-        if(!seen.contains(r)){ // this will check that the item is in there
-          // we want to add r to seen arraylist
+  ArrayList<Integer> seen = new ArrayList<>();
+  // Now we have to go through a for loop through the reps array
+  for (int i = 0; i < uf.reps.length; i++) {
+      int r = uf.find(i);
+      if (!seen.contains(r)) { // this will check that the item is not already in there
+          // We want to add r to seen ArrayList
           seen.add(r);
-        }
-        // now we want to print out the values 
-        // we want to for loop through and print the smallest number  
-        
-        
-
       }
-      // now we wnat to go through and print the indexs of the representatives from smallest to largest 
-      
-      ArrayList<Integer> sortedSeen  = new ArrayList<>();
+  }
+  // Created new ArrayList, that is sorted
+  Collections.sort(seen);
+  // Created new array that is going to be the sorted array
+  Integer[] sortedSeenArray = seen.toArray(new Integer[0]);
 
-      // need to create a new array 
-      int [] sortedSeenArray  = new SortedSeenArray[sortedSeen.size()]; 
-      sortedSeen = ArrayCollections.sort(seen);
-      sortedSeenArray = sortedSeen.toArray();
-      // now we are going to use the values in the arraylist to call all on 
-      for(int i = 0; i < sortedSeenArray.length; i ++){
-        if(sortedSeenArray[i] == Integer.parseInt(tokens[1])){
-          // printing out the position
-          System.out.print(sortedSeenArray[i] + " ");
-        
-        }
-
-      return;
+  // Now we are going to use the values in the arraylist to call all on
+  System.out.println("Summary: ");
+  for (int i = 0; i < sortedSeenArray.length; i++) {
+    // If the seen sorted array at the given position then we are going to go through a for loop which will print out the values that are in that group
+    // Printing out the position
+    System.out.println(uf.find(sortedSeenArray[i]) + " ");
     }
   }
-
+  return;
 }
+
+  }
+
+
+
+
 // expected output 
 /*If the input file is:
 5
