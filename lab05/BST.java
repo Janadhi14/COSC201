@@ -324,28 +324,31 @@ private static void updateSize(Node n) {
 
 public static BST makeBalanced(String[] dictionary) {
   BST balancedTree = new BST();
-  balancedTree.root = makeBalancedHelper(dictionary, 0, dictionary.length - 1);
+  balancedTree.root = privMakeBalanced(dictionary, 0, dictionary.length - 1);
   return balancedTree;
 }
-
-private static Node makeBalancedHelper(String[] dictionary, int start, int end) {
+// private class that willrecurssivly called privMakeBalanced 
+private static Node privMakeBalanced(String[] dictionary, int start, int end) {
   if (start > end) {
       return null;
   }
-
+// need to create a mid point 
   int mid = (start + end) / 2;
+  // create a new node that has the midpoint of the string array 
   Node newNode = new Node(dictionary[mid]);
-
-  newNode.left = makeBalancedHelper(dictionary, start, mid - 1);
+  
+  // recurssivly call for the left nodes 
+  newNode.left = privMakeBalanced(dictionary, start, mid - 1);
+  //temninating condiiton is when we are at teh final leaf
   if (newNode.left != null) {
       newNode.left.parent = newNode;
   }
-
-  newNode.right = makeBalancedHelper(dictionary, mid + 1, end);
+  // recurssivly call for the right nodes 
+  newNode.right = privMakeBalanced(dictionary, mid + 1, end);
   if (newNode.right != null) {
       newNode.right.parent = newNode;
   }
-
+  // calling the updating size and heigh methods using newNode as the parameter  
   updateSize(newNode);
   updateHeight(newNode);
 

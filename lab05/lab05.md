@@ -27,8 +27,7 @@ work.
 • (P) Add a method next(String s) that returns the first (in alphabetical order)
 string t contained in a BST that is greater than s. It should return null if there is
 not such a node.
+DONE
 
-• (A) How might the code for a method private Node next(Node n) that returns the next Node of a BST (or null) i.e., the node whose key is the least key
-of the tree greater than the key at the given node differ fundamentally from the
-previous method? (for the purposes of increased efficiency) – in fact, doesn’t it
-already exist?
+
+• (A) How might the code for a method private Node next(Node n) that returns the next Node of a BST (or null) i.e., the node whose key is the least key of the tree greater than the key at the given node differ fundamentally from the previous method? (for the purposes of increased efficiency) – in fact, doesn’t it already exist?
