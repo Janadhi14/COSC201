@@ -38,10 +38,13 @@ public class BSTTest {
         System.out.println("Size of 'mat': " + tree.size("mat"));
         System.out.println("Size of 'elephant': " + tree.size("elephant"));
         System.out.println("Size of 'dog': " + tree.size("dog"));
-
+        // Testing the next()
+        System.out.println("Next after 'banana': " + tree.next("bat")); // should return cat 
+        
+        
         // // Test delete()
-        tree.delete("dog");
-        System.out.println("Does the tree contain 'dog'? " + tree.contains("dog")); // Should print false
+        tree.delete("mat");
+        System.out.println("Does the tree contain 'mat'? " + tree.contains("mat")); // Should print false
         System.out.println(tree.toString());
         // Test traversals
         // removed dog 
@@ -55,9 +58,8 @@ public class BSTTest {
         BST balancedTree = BST.makeBalanced(arr);
         System.out.println("Balanced tree inorder traversal: " + balancedTree.toString());
         balancedTree.toString();
-        // // Test next()
-        // System.out.println("Next after 'banana': " + tree.next("banana"));
-        // System.out.println("Next after 'grape': " + tree.next("grape"));
-        // System.out.println("Next after 'kiwi': " + tree.next("kiwi"));
+
+         
+        
     }
 }
