@@ -59,3 +59,14 @@ DONE
 - If there is no right child, the inorder successor is an ancestor of the given node. We traverse all the way back up the tree using the parent pointers until we find a node that is the left child of its parent. The parent of this node is the inorder successor.
 
 - can be done through a findMin method that will use a while loop to chekc if the current.left is not not null, then if it is null(we have reached the end)
+- use the successor method (this method functions to find the next node that does this)
+
+  // Finds the successor of a node, used in the 'difficult' delete case.
+  // Assumption: n has a non-null right child.
+  private Node successor(Node n) {
+    Node result = n.right;
+    while (result.left != null) {
+      result = result.left;
+    }
+    return result;
+  }

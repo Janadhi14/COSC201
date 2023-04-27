@@ -46,8 +46,9 @@ public class BSTTest {
         tree.delete("mat");
         System.out.println("Does the tree contain 'mat'? " + tree.contains("mat")); // Should print false
         System.out.println(tree.toString());
-        // Test traversals
-        // removed dog 
+        
+        // Test traversals()
+        // removed dog()
         System.out.println("Preorder traversal: " + tree.preorder());
         System.out.println("Inorder traversal: " + tree.inorder()); 
         System.out.println("Postorder traversal: " + tree.postorder());
@@ -59,7 +60,5 @@ public class BSTTest {
         System.out.println("Balanced tree inorder traversal: " + balancedTree.toString());
         balancedTree.toString();
 
-         
-        
     }
 }
