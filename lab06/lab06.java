@@ -7,13 +7,20 @@ import java.util.Set;
 public class lab06 {
     public static void main(String[] args){
         
-        char[] c = {'A', 'B', 'C', 'D', 'E'};
-        int n = 3000;
-        String randomString = generateString(c, n);
-        //System.out.println("Generated String: " + randomString);
+        char[] c = {'A'   };
+        int n = 600;
+        int trials = 100;
+        int totalDistinctSubstrings = 0;
 
-        Set<String> substrings = calculateDistinctSubstrings(randomString);
-        System.out.println("Actual number of distinct substrings: " + substrings.size());
+        for (int i = 0; i < trials; i++) {
+            String randomString = generateString(c, n);
+            Set<String> substrings = calculateDistinctSubstrings(randomString);
+            totalDistinctSubstrings += substrings.size();
+        }
+
+        double averageDistinctSubstrings = (double) totalDistinctSubstrings / trials;
+
+        System.out.println("Average number of distinct substrings over " + trials + " trials: " + averageDistinctSubstrings);
 
         int theoreticalMax = 1 + n*(n + 1)/2;
         System.out.println("Theoretical maximum number of distinct substrings: " + theoreticalMax);
@@ -39,8 +46,4 @@ public class lab06 {
         return substrings;
     }
 
-    }
-
-
-
-
+}
