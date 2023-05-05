@@ -20,11 +20,17 @@ import java.util.Map;
  * 
  */
 public class Potionarium {
-  // need to create a map for both 
+  // need create 2 Maps that are going to be used for mapping ingredients and drawers both ways around 
+    private final Map<Long, Set <String>> ingredintsInDrawers;
+    private final Map<Long, Set <String>> drawersforIngredients;
+
   /**
    * Creates a new empty potionarium.
    */
-  public Potionarium() {};
+  public Potionarium() {
+    ingredintsInDrawers =new HashMap<>();
+    drawersforIngredients = new HashMap<>();
+  };
 
   /**
    * Determines the inventory of the potionarium.
