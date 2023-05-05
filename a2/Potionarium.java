@@ -1,6 +1,10 @@
 package cosc201.a2;
 
 import java.util.Set;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
 
 /**
  * A potionarium is a collection of drawers, each of which contains a set of
@@ -16,7 +20,7 @@ import java.util.Set;
  * 
  */
 public class Potionarium {
-
+  // need to create a map for both 
   /**
    * Creates a new empty potionarium.
    */
