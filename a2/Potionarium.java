@@ -21,15 +21,15 @@ import java.util.Map;
  */
 public class Potionarium {
   // need create 2 Maps that are going to be used for mapping ingredients and drawers both ways around 
-    private final Map<Long, Set <String>> ingredientsInDrawers;
-    private final Map<Long, Set <String>> drawersForIngredients;
+    private final Map<Long, Set <String>> ingredientsInDrawers; // A map that maps the ingredients in different drawers  
+    private final Map<Long, Set <String>> drawersForIngredients; // A map that maps the drawers for the ingredients 
 
   /**
    * Creates a new empty potionarium.
    */
   public Potionarium() {
     //when we create an instance of potionarium we need to create both of these 2 hashmaps
-    ingredientsInDrawers =new HashMap<>();
+    ingredientsInDrawers =new HashMap<>(); 
     drawersforIngredients = new HashMap<>();
   };
 
@@ -42,8 +42,6 @@ public class Potionarium {
     // needs to return the all the avalible ingredients 
     // we can use the .keyset() of the ingredients map and then put it in the hashset to do this if we put the 
     return new HashSet<>(ingredientsInDrawers.keyset());
-    
-    return null;
   }
 
 
@@ -54,7 +52,10 @@ public class Potionarium {
    * @return The set of drawers that contain the ingredient.
    */
   public Set<Long> getDrawers(String ingredient) {
-    return null;
+    // need to return a set of drawer numbers containing a given ingredient.
+    // using a getOrDefault method in Map to get the value associated ot the ingredient, and the default value being a new Hashset 
+    // we are doing this so that we can still return a value even if the ingredient is not in the drawers
+    return new HashSet<Long>(ingredientsInDrawers.getOrDefault(ingredient, new HashSet<>()));
   }
 
   /**
