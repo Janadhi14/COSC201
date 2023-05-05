@@ -65,7 +65,8 @@ public class Potionarium {
    * @return The set of ingredients that are in the drawer.
    */
   public Set<String> getIngredients(long drawer) {
-    return null;
+    // similar to the get Drawers just for inredients instead
+    return new HashSet<>(drawersForIngredients.getOrDefault(drawer, new HashSet<>()));
   }
 
   /**
