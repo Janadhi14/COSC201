@@ -78,7 +78,14 @@ public class Potionarium {
    * @return True if the drawer was filled, false if it was not empty
    */
   public boolean fillDrawer(long drawer, Set<String> ingredients) {
-    return false;
+    // bit more tricky first we must check if the drawer is filled and make an early return of false 
+    if (drawersForIngredients.containsKey(drrawer)){
+      return false; 
+    }
+    
+    
+    // need to use put method to
+
   }
 
   /**
