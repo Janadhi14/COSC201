@@ -21,14 +21,15 @@ import java.util.Map;
  */
 public class Potionarium {
   // need create 2 Maps that are going to be used for mapping ingredients and drawers both ways around 
-    private final Map<Long, Set <String>> ingredintsInDrawers;
-    private final Map<Long, Set <String>> drawersforIngredients;
+    private final Map<Long, Set <String>> ingredientsInDrawers;
+    private final Map<Long, Set <String>> drawersForIngredients;
 
   /**
    * Creates a new empty potionarium.
    */
   public Potionarium() {
-    ingredintsInDrawers =new HashMap<>();
+    //when we create an instance of potionarium we need to create both of these 2 hashmaps
+    ingredientsInDrawers =new HashMap<>();
     drawersforIngredients = new HashMap<>();
   };
 
@@ -38,6 +39,10 @@ public class Potionarium {
    * @return The set of ingredients in the potionarium.
    */
   public Set<String> getInventory() {
+    // needs to return the all the avalible ingredients 
+    // we can use the .keyset() of the ingredients map and then put it in the hashset to do this if we put the 
+    return new HashSet<>(ingredientsInDrawers.keyset());
+    
     return null;
   }
 
