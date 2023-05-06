@@ -158,6 +158,13 @@ public class Potionarium {
    * @return True if all ingredients were removed, false if one or more were missing.
    */
   public boolean removeIngredients(long drawer, Set<String> ingredients) {
+    // need to remove a set of Ingredients so will need to use a for loop aswell to go through the ingredinets that are in the set 
+    Set<String> drawerIngredients = drawersForIngredients.get(drawer);
+    if (drawerIngredients == null ||!drawerIngredients.containsAll(ingredients)) {
+    return false;
+    }
+
+    
     return false;
   }
 
