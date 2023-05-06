@@ -30,7 +30,7 @@ public class Potionarium {
   public Potionarium() {
     //when we create an instance of potionarium we need to create both of these 2 hashmaps
     ingredientsInDrawers =new HashMap<>(); 
-    drawersforIngredients = new HashMap<>();
+    drawersForIngredients = new HashMap<>();
   };
 
   /**
@@ -41,7 +41,7 @@ public class Potionarium {
   public Set<String> getInventory() {
     // needs to return the all the avalible ingredients 
     // we can use the .keyset() of the ingredients map and then put it in the hashset to do this if we put the 
-    return new HashSet<>(ingredientsInDrawers.keyset());
+    return new HashSet<>(ingredientsInDrawers.keySet());
   }
 
 
@@ -135,19 +135,19 @@ public class Potionarium {
    */
   public boolean removeIngredient(long drawer, String ingredient) {
     // needs to return faslse if the ingredient wasnt present in tehspecified drawer 
-   // need to get the set of ingredients associated with the drawer 
-   Set<String> drawerIngredients  = drawersForIngredients.get(drawer);
-    //first if statemetn to check if drawer ingredient is not present or if it is null
-  
-    if(drawerIngredients.remove(ingredient)|| drawerIngredients == null){
-      return false;
-    }
+   // need to check if the drawer is present in the hashmap and then check if the ingredient is present and if 
+   // one of these are false we need to return false so it should be !drawersForIngredients.get..... or !drawersForIngredients
+    if(!drawersForIngredients.get(drawer).contains(ingredients)||!drawersToIngredients.containsKey(drawer)){
+    return false;
+   }
+   // now we know that the ingredient must be present in teh stated drawer so we can remove the ingredients with get methods 
+   drawersForIngredients.get(drawer).remove(ingredients);
+    // now we need to update the ingredientsInDrawers if the ingredient was removed and then return true 
+   ingredientsInDrawers.get(ingredient).remove(drawer);
 
-    // now we need to update the ingredientsforDrawers if the ingredient was removed and then return true 
-    Set<Long> 
-    
     return true;
   }
+
 
   /**
    * Removes a set of ingredients from a drawer. If one or more are
