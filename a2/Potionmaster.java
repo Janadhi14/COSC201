@@ -28,9 +28,7 @@ public abstract class Potionmaster {
    * are missing, the potionmaster must not make any changes to the potionarium. If all 
    * ingredients are present, the potionmaster removes one copy of each from the potionarium. 
    * 
-   * The list of ingredients should not contain any duplicates. Even if it does, only a single
-   * copy of any ingredient should be removed from the potionarium.
-   * 
+   * w
    * The method returns an order slip indicating what was done. In the case that ingredients
    * were missing, the order slip consists of the words "Missing ingredients" followed by
    * a colon, a space, and then a comma-separated list of the missing ingredients. 

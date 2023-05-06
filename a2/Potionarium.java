@@ -1,6 +1,10 @@
 package cosc201.a2;
 
 import java.util.Set;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
 
 /**
  * A potionarium is a collection of drawers, each of which contains a set of
@@ -16,11 +20,18 @@ import java.util.Set;
  * 
  */
 public class Potionarium {
+  // need create 2 Maps that are going to be used for mapping ingredients and drawers both ways around 
+    private final Map<String, Set <Long>> ingredientsInDrawers; // A map that maps the ingredients in different drawers  
+    private final Map<Long, Set <String>> drawersForIngredients; // A map that maps the drawers for the ingredients 
 
   /**
    * Creates a new empty potionarium.
    */
-  public Potionarium() {};
+  public Potionarium() {
+    //when we create an instance of potionarium we need to create both of these 2 hashmaps
+    ingredientsInDrawers =new HashMap<>(); 
+    drawersforIngredients = new HashMap<>();
+  };
 
   /**
    * Determines the inventory of the potionarium.
@@ -28,7 +39,9 @@ public class Potionarium {
    * @return The set of ingredients in the potionarium.
    */
   public Set<String> getInventory() {
-    return null;
+    // needs to return the all the avalible ingredients 
+    // we can use the .keyset() of the ingredients map and then put it in the hashset to do this if we put the 
+    return new HashSet<>(ingredientsInDrawers.keyset());
   }
 
 
@@ -39,7 +52,10 @@ public class Potionarium {
    * @return The set of drawers that contain the ingredient.
    */
   public Set<Long> getDrawers(String ingredient) {
-    return null;
+    // need to return a set of drawer numbers containing a given ingredient.
+    // using a getOrDefault method in Map to get the value associated ot the ingredient, and the default value being a new Hashset 
+    // we are doing this so that we can still return a value even if the ingredient is not in the drawers
+    return new HashSet<Long>(ingredientsInDrawers.getOrDefault(ingredient, new HashSet<>()));
   }
 
   /**
@@ -49,7 +65,8 @@ public class Potionarium {
    * @return The set of ingredients that are in the drawer.
    */
   public Set<String> getIngredients(long drawer) {
-    return null;
+    // similar to the get Drawers just for inredients instead
+    return new HashSet<>(drawersForIngredients.getOrDefault(drawer, new HashSet<>()));
   }
 
   /**
@@ -61,7 +78,23 @@ public class Potionarium {
    * @return True if the drawer was filled, false if it was not empty
    */
   public boolean fillDrawer(long drawer, Set<String> ingredients) {
-    return false;
+    // bit more tricky first 
+    //we must check if the drawer is not filled and make an early return of false 
+    if (drawersForIngredients.containsKey(drawer)){
+      return false; 
+    }
+    // now we need to put ingredients in the specified drawer  
+    drawersForIngredients.put(drawer, new HashSet<>(ingredients));
+    
+    // need to go through and add every ingredient to the ingredinets in teh drawers, if absent we need to add and we also need to get and then add to the drawer 
+    for(String ingredient : ingredients){
+      ingredientsInDrawers.putIfAbsent(ingredient, new HashSet<>()); // empty HashSet if i
+      // need to now get teh ingredinet and then add it to the drawer 
+      ingredientsInDrawers.get(ingredient).add(drawer);
+    }
+    // other condition if the ingredient is in the drawer then we return true 
+    return true;
+
   }
 
   /**
@@ -73,7 +106,24 @@ public class Potionarium {
    * @return True if the ingredient was added, false if it was already present.
    */
   public boolean addIngredient(long drawer, String ingredient) {
-    return false;
+    // we need to add the ingrediernt to the specified drawer going to need a couple of if statements to verify 
+    Set<String> drawerIngredients = drawersForIngredients.get(drawer);
+    
+    // if statement to chekc if the ingredients in teh drawer is null then we need to create a new hashmap with nothing in it so doesnt retunr null 
+    if(drawerIngredients == null){
+      drawerIngredients = new HashMap<>();
+      drawerIngredients.put(drawer, drawerIngredients);
+    }
+    // now check if the 
+    if(!drawerIngredients.add(ingredient)){
+      // if we try to add an ingredient to the drawer and it is alreadt present then we are going to return false 
+      return false;
+    }
+    // now if it is not either of thoses cases we need to put if it is absent and then alsl add to drawer 
+    ingredientsInDrawers.putIfAbsent(ingredient, new HashMap<>());
+    ingredientToDrawers.get(ingredient).add(drawer); // adding to the drawer the ingredient 
+    
+    return true;
   }
 
   /**
@@ -84,7 +134,18 @@ public class Potionarium {
    * @return True if the ingredient was removed, false if it was not present.
    */
   public boolean removeIngredient(long drawer, String ingredient) {
-    return false;
+    // needs to return faslse if the ingredient wasnt present in tehspecified drawer 
+   // need to get the set of ingredients associated with the drawer 
+   Set<String> drawerIngredients  = drawersForIngredients.get(drawer);
+    //first if statemetn to check if drawer ingredient is not present or if it is null
+  
+    if(drawerIngredients.remove(ingredient)|| drawerIngredients == null){
+      return false;
+    }
+
+    // now we need to update the ingredientsforDrawers if the ingredient was removed and then return true 
+    Set<Long> 
+    return true;
   }
 
   /**
