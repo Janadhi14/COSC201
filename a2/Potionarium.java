@@ -21,7 +21,7 @@ import java.util.Map;
  */
 public class Potionarium {
   // need create 2 Maps that are going to be used for mapping ingredients and drawers both ways around 
-    private final Map<Long, Set <String>> ingredientsInDrawers; // A map that maps the ingredients in different drawers  
+    private final Map<String, Set <Long>> ingredientsInDrawers; // A map that maps the ingredients in different drawers  
     private final Map<Long, Set <String>> drawersForIngredients; // A map that maps the drawers for the ingredients 
 
   /**
@@ -134,7 +134,18 @@ public class Potionarium {
    * @return True if the ingredient was removed, false if it was not present.
    */
   public boolean removeIngredient(long drawer, String ingredient) {
-    return false;
+    // needs to return faslse if the ingredient wasnt present in tehspecified drawer 
+   // need to get the set of ingredients associated with the drawer 
+   Set<String> drawerIngredients  = drawersForIngredients.get(drawer);
+    //first if statemetn to check if drawer ingredient is not present or if it is null
+  
+    if(drawerIngredients.remove(ingredient)|| drawerIngredients == null){
+      return false;
+    }
+
+    // now we need to update the ingredientsforDrawers if the ingredient was removed and then return true 
+    Set<Long> 
+    return true;
   }
 
   /**
