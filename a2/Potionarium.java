@@ -160,12 +160,18 @@ public class Potionarium {
   public boolean removeIngredients(long drawer, Set<String> ingredients) {
     // need to remove a set of Ingredients so will need to use a for loop aswell to go through the ingredinets that are in the set 
     Set<String> drawerIngredients = drawersForIngredients.get(drawer);
-    if (drawerIngredients == null ||!drawerIngredients.containsAll(ingredients)) {
-    return false;
-    }
+    if (drawerIngredients == null||!drawerIngredients.containsAll(ingredients)) { // need to use contains all cause we are dealing with set of String ingredients (not just one )
+    // returns false if there is nothing or if the ingredient is not in the drawer or if the drawer has been
 
+      return false;
+    }
+    // now we need to go through and for every ingredient in teh set of ingredients we need to remove from both maps 
+    for(String ingredient : ingredients) {
+      drawerIngredients.remove(ingredient);
+      ingredientsInDrawers.get(ingredient).remove(drawer);
+    }
     
-    return false;
+    return true;
   }
 
 }
