@@ -106,7 +106,24 @@ public class Potionarium {
    * @return True if the ingredient was added, false if it was already present.
    */
   public boolean addIngredient(long drawer, String ingredient) {
-    return false;
+    // we need to add the ingrediernt to the specified drawer going to need a couple of if statements to verify 
+    Set<String> drawerIngredients = drawersForIngredients.get(drawer);
+    
+    // if statement to chekc if the ingredients in teh drawer is null then we need to create a new hashmap with nothing in it so doesnt retunr null 
+    if(drawerIngredients == null){
+      drawerIngredients = new HashMap<>();
+      drawerIngredients.put(drawer, drawerIngredients);
+    }
+    // now check if the 
+    if(!drawerIngredients.add(ingredient)){
+      // if we try to add an ingredient to the drawer and it is alreadt present then we are going to return false 
+      return false;
+    }
+    // now if it is not either of thoses cases we need to put if it is absent and then alsl add to drawer 
+    ingredientsInDrawers.putIfAbsent(ingredient, new HashMap<>());
+    ingredientToDrawers.get(ingredient).add(drawer); // adding to the drawer the ingredient 
+    
+    return true;
   }
 
   /**
