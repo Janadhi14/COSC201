@@ -83,16 +83,17 @@ public class Potionarium {
     if (drawersForIngredients.containsKey(drawer)){
       return false; 
     }
-    // now we need to put ingredinets in the specified drawer  
+    // now we need to put ingredients in the specified drawer  
     drawersForIngredients.put(drawer, new HashSet<>(ingredients));
-
-    // 
-
-
+    
+    // need to go through and add every ingredient to the ingredinets in teh drawers, if absent we need to add and we also need to get and then add to the drawer 
+    for(String ingredient : ingredients){
+      ingredientsInDrawers.putIfAbsent(ingredient, new HashSet<>()); // empty HashSet if i
+      // need to now get teh ingredinet and then add it to the drawer 
+      ingredientsInDrawers.get(ingredient).add(drawer);
+    }
     // other condition if the ingredient is in the drawer then we return true 
     return true;
-    
-    // need to use put method to
 
   }
 
