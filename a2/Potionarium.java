@@ -49,7 +49,7 @@ the methods*/
   }
 
 
-  /**
+  /** 
    * Determines the drawers that contain an ingredient.
    * 
    * @param ingredient The ingredient to be searched for.
@@ -127,7 +127,8 @@ the methods*/
     ingredientsInDrawers.putIfAbsent(ingredient, new HashMap<>());
     ingredientsInDrawers.get(ingredient).add(drawer); // adding to the drawer the ingredient 
     
-    return true;
+    return true; 
+    
   }
 
   /**
