@@ -115,8 +115,8 @@ the methods*/
     
     // if statement to chekc if the ingredients in teh drawer is null then we need to create a new hashmap with nothing in it so doesnt retunr null 
     if(drawerIngredients == null){
-      drawerIngredients = new HashMap<>();
-      drawerIngredients.put(drawer, drawerIngredients);
+      drawerIngredients = new HashSet<>();
+      drawersForIngredients.put(drawer, drawerIngredients);
     }
     // now check if the 
     if(!drawerIngredients.add(ingredient)){
@@ -124,7 +124,7 @@ the methods*/
       return false;
     }
     // now if it is not either of thoses cases we need to put if it is absent and then alsl add to drawer 
-    ingredientsInDrawers.putIfAbsent(ingredient, new HashMap<>());
+    ingredientsInDrawers.putIfAbsent(ingredient, new HashSet<>());
     ingredientsInDrawers.get(ingredient).add(drawer); // adding to the drawer the ingredient 
     
     return true; 
