@@ -1,4 +1,5 @@
-package cosc201.a2;
+package a2;
+
 
 import java.util.*;
 
