@@ -121,7 +121,7 @@ public class Potionarium {
     }
     // now if it is not either of thoses cases we need to put if it is absent and then alsl add to drawer 
     ingredientsInDrawers.putIfAbsent(ingredient, new HashMap<>());
-    ingredientToDrawers.get(ingredient).add(drawer); // adding to the drawer the ingredient 
+    ingredientsInDrawers.get(ingredient).add(drawer); // adding to the drawer the ingredient 
     
     return true;
   }
