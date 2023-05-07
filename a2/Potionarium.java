@@ -142,11 +142,11 @@ the methods*/
     // needs to return faslse if the ingredient wasnt present in tehspecified drawer 
    // need to check if the drawer is present in the hashmap and then check if the ingredient is present and if 
    // one of these are false we need to return false so it should be !drawersForIngredients.get..... or !drawersForIngredients
-    if(!drawersForIngredients.get(drawer).contains(ingredients)||!drawersToIngredients.containsKey(drawer)){
+    if(!drawersForIngredients.get(drawer).contains(ingredient)||!drawersForIngredients.containsKey(drawer)){
     return false;
    }
    // now we know that the ingredient must be present in teh stated drawer so we can remove the ingredients with get methods 
-   drawersForIngredients.get(drawer).remove(ingredients);
+   drawersForIngredients.get(drawer).remove(ingredient);
     // now we need to update the ingredientsInDrawers if the ingredient was removed and then return true 
    ingredientsInDrawers.get(ingredient).remove(drawer);
 
