@@ -1,6 +1,6 @@
 package cosc201.a2;
 
-import java.util.Set;
+import java.util.*;
 import cosc201.a2.Potionmaster;
 
 public class StandardSam extends Potionmaster{

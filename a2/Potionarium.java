@@ -21,6 +21,10 @@ import java.util.Map;
  */
 public class Potionarium {
   // need create 2 Maps that are going to be used for mapping ingredients and drawers both ways around 
+  // need to have private fields!!! cause y, it should not
+/*be possible for any outside program making use of the public methods of the class
+to make any changes to the contents of the potion cabinet, except those specified by
+the methods*/
     private final Map<String, Set <Long>> ingredientsInDrawers; // A map that maps the ingredients in different drawers  
     private final Map<Long, Set <String>> drawersForIngredients; // A map that maps the drawers for the ingredients 
 
