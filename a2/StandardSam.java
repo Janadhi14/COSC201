@@ -8,6 +8,7 @@ public class StandardSam extends Potionmaster{
    public StandardSam(Potionarium potionarium){
       super(potionarium);
    }
+   // need to override the method from potionMaster class
 @Override
 public String collectIngredients(List<String> ingredients){
    /*Sam starts with a potion recipe: a list (without duplicates) of ingredients that are needed
