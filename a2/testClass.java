@@ -9,11 +9,13 @@ public class testClass{
         // need to call potioinarium
         Potionarium j = new Potionarium();
         
-        Set<String> ingredients1 = new HashSet<>(Arrays.asList("ingredient1", "ingredient2", "ingredient3"));
-        System.out.println("Fill drawer 1: " + j.addIngredient(1, "jasdjfjsad")); // Expected output: true
-        System.out.println("Fill drawer 1: " + j.addIngredient(1, "jasdjfjsad")); // Expected output: false becase it is already in the potion cabinet 
+        Set<String> ingredientsList = new HashSet<>(Arrays.asList("ingredient1", "ingredient2", "ingredient3"));
+        System.out.println("Fill drawer 1: " + j.addIngredient(1, "a")); // Expected output: true
+        System.out.println("Fill drawer 2: " + j.addIngredient(2, "b")); // Expected output: true
+        System.out.println("Fill drawer 3: " + j.addIngredient(3, "c")); // Expected output: true
+        System.out.println("Fill drawer 4: " + j.fillDrawer(4, ingredientsList)); // Expected output: true
 
-        System.out.println("jjjjjj drawer 1: " + j.getInventory());
+        System.out.println("jjjjjj drawer 1: " + j.getInventory()); 
         
     }
 }
