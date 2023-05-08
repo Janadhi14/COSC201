@@ -170,7 +170,7 @@ the methods*/
 
       return false;
     }
-    // now we need to go through and for every ingredient in teh set of ingredients we need to remove from both maps 
+    // now we need to go through and for every ingredient in the set of ingredients we need to remove from both maps 
     for(String ingredient : ingredients) {
       drawerIngredients.remove(ingredient);
       ingredientsInDrawers.get(ingredient).remove(drawer);
