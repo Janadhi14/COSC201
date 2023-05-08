@@ -34,9 +34,8 @@ if (!ingredientsMissing.isEmpty()) {
 } else {
 
 
-    
 
-    // if we get down this far that means there are no missing ingredients 
+    // if we get dxsown this far that means there are no missing ingredients 
     /*logic:  First Sam  verifies that it’s possible to get all the required ingredients from the cabinet.
     Then, while they have not collected all the necessary ingredients, they find the first item on the list that’s still needed. 
     They remove this item from the lowestnumbered drawer containing it. While doing so, they also remove any other items still needed that are present in that drawer. */
@@ -68,16 +67,15 @@ if (!ingredientsMissing.isEmpty()) {
               }
           }
       
-      
-      
-      
-         // if all the ingredients are present then we need to build a string that will return the order report
-         StringBuilder orderReport = new StringBuilder();
-         for (Map.Entry<Long, List<String>> start : usedDrawers.entrySet()) { 
-          String ingredientsInDrawer = String.join(", ", start.getValue());
-          orderReport.append(start.getKey()).append(": ").append(ingredientsInDrawer).append('\n');
-      }
-         return orderReport.toString();
+         // if all the ingredients are present then we need to a string that will return the order report
+         String orderReport = "";
+         for (Map.Entry<Long, List<String>> start : usedDrawers.entrySet()) {
+             String ingredientsInDrawer = String.join(", ", start.getValue());
+             orderReport += start.getKey() + ": " + ingredientsInDrawer + '\n';
+         
+   }
+   // retunring the orderReport of the ingredients that are present 
+   return orderReport.toString();
 
 
 }
