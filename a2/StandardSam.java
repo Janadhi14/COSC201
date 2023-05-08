@@ -1,9 +1,9 @@
 package a2;
 import java.util.*;
-import a2.Potionmaster;
-import java.util.Collections;
+
 
 public class StandardSam extends Potionmaster{
+
 // constructor and using super becase we are in the subclass of potionMaster which already has potionarium in its constructor 
    public StandardSam(Potionarium potionarium){
       super(potionarium);
@@ -29,10 +29,29 @@ to brew a potion so we need to implement this in java through*/
       long minDrawer = Collections.min(drawers); 
       potionarium.removeIngredient(minDrawer, ingredient); // collects the ingredient from the minDrawer
 
+      // should kep track of ingredients that are being taken from drawers 
+      // need to keep order of ingredients that are being removed, cant use HashSet() 
+      // can use Array or arraylist but arraylist should be better becase the ingredient list is dynamic ?
+      usedDrawers.putIfAbsent(minDrawer, new ArrayList<>());
+      usedDrawers.get(drawer).add(ingredient);
+
+      }
    }
-   
-}
-   
+
+// if there are missing ingredients we need to return the missing ingredients 
+   if(!ingredientsMissing.isEmpty()) {
+    String missingOrderList = ", " + ingredientsMissing;
+    return "Missing ingredients: " + ingredientsMissing; // early returns the missing ingredients 
+
+   }
+
+   // if all the ingredients are present then we need to build a string that will return the order report
+   StringBuilder orderReport = new StringBuilder();
+   for(){
+
+   }
+
+   return orderReport;
 
 }
 }
