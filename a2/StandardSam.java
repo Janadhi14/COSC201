@@ -1,7 +1,7 @@
 package a2;
-
 import java.util.*;
 import a2.Potionmaster;
+import java.util.Collections;
 
 public class StandardSam extends Potionmaster{
 // constructor and using super becase we are in the subclass of potionMaster which already has potionarium in its constructor 
@@ -22,13 +22,19 @@ to brew a potion so we need to implement this in java through*/
       // need to also check if the drawers are empty 
       if(drawers.isEmpty()){ // if true that is going to eman that the ingredinet sint present 
          ingredientsMissing.add(ingredient);
- 
-      }
+
+         
+      }else { // else its not missing and we need to add to the }
+      // need to use collections import to get the ingredients from teh lowest number drawer 
+      long minDrawer = Collections.min(drawers); 
+      potionarium.removeIngredient(minDrawer, ingredient); // collects the ingredient from the minDrawer
 
    }
    
 }
    
+
+}
 }
 
 
