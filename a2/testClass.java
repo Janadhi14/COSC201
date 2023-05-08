@@ -1,6 +1,6 @@
 package a2;
 
-
+impory
 import java.util.*;
 
 public class testClass{
@@ -14,8 +14,9 @@ public class testClass{
         System.out.println("Fill drawer 2: " + j.addIngredient(2, "b")); // Expected output: true
         System.out.println("Fill drawer 3: " + j.addIngredient(3, "c")); // Expected output: true
         System.out.println("Fill drawer 4: " + j.fillDrawer(4, ingredientsList)); // Expected output: true
-
-        System.out.println("jjjjjj drawer 1: " + j.getInventory()); 
+        //System.out.println(potionarium.removeIngredient(1, "a")); // Expected output: false beacsue it is not in teh map
+        System.out.println("jjjjjj drawers: " + j.getInventory()); 
         
+       
     }
-}
+    }
