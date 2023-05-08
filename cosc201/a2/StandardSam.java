@@ -53,7 +53,31 @@ if (!ingredientsMissing.isEmpty()) {
                 ingredientsRemaining.remove(ingredient); // need to remove from the ingredient that are remaining in the lsit 
             }
         }
-        
+                // need to remove from the potionarium aswell
+                for(String ingredient : ingredientsFound){
+                  potionarium.removeIngredient(minDrawer,ingredient);
+      
+              }
+      
+            //need to keep track of drawers that we have gone through aswell!!
+            usedDrawers.put(minDrawer,ingredientsFound);
+            
+            // we need to break out of this for loop once we have gotten all the ingredients 
+            if(ingredientsRemaining.isEmpty()){
+               break;
+              }
+          }
+      
+      
+      
+      
+         // if all the ingredients are present then we need to build a string that will return the order report
+         StringBuilder orderReport = new StringBuilder();
+         for (Map.Entry<Long, List<String>> start : usedDrawers.entrySet()) { 
+          String ingredientsInDrawer = String.join(", ", start.getValue());
+          orderReport.append(start.getKey()).append(": ").append(ingredientsInDrawer).append('\n');
+      }
+         return orderReport.toString();
 
 
 }
