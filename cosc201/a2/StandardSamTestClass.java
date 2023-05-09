@@ -1,6 +1,5 @@
 package cosc201.a2;
 
-//import utilities.Timer;
 import java.util.*;
 
 public class StandardSamTestClass {
@@ -17,6 +16,8 @@ public class StandardSamTestClass {
         Potionarium potionarium = new Potionarium();
         
         Timer t  = new Timer();
+        
+    
 
         // Add 100 random ingredients to the Potionarium for testing
         for (int i = 0; i < numIngredients; i++) {
@@ -37,7 +38,9 @@ public class StandardSamTestClass {
         StandardSam standardSam = new StandardSam(potionarium);
 
         // Test the collectIngredients method with 10 ingredients that are all present
+        t.start();
         String result1 = standardSam.collectIngredients(ingredientsToCollect);
+        t.stop();
         System.out.println("All ingredients are available:\n" + result1);
         
         

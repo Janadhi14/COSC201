@@ -21,10 +21,11 @@ import java.util.Map;
  */
 public class Potionarium {
   // need create 2 Maps that are going to be used for mapping ingredients and drawers both ways around 
-  // need to have private fields!!! cause y, it should not
+  // need to have private fields!!! cause , it should not
 /*be possible for any outside program making use of the public methods of the class
 to make any changes to the contents of the potion cabinet, except those specified by
-the methods*/
+the methods*/ 
+// should use sets insted of array when implementing because the Arrays are not as effecttiv ebecause we dont want dumplicateds within any given drawer!
     private final Map<String, Set <Long>> ingredientsInDrawers; // A map that maps the ingredients in different drawers  
     private final Map<Long, Set <String>> drawersForIngredients; // A map that maps the drawers for the ingredients 
 
@@ -110,26 +111,24 @@ the methods*/
    * @return True if the ingredient was added, false if it was already present.
    */
   public boolean addIngredient(long drawer, String ingredient) {
-    // we need to add the ingrediernt to the specified drawer going to need a couple of if statements to verify 
-    Set<String> drawerIngredients = drawersForIngredients.get(drawer);
-    
-    // if statement to chekc if the ingredients in teh drawer is null then we need to create a new hashmap with nothing in it so doesnt retunr null 
-    if(drawerIngredients == null){
-      drawerIngredients = new HashSet<>();
-      drawersForIngredients.put(drawer, drawerIngredients);
+    // check if the drawer exists
+    if (!drawersForIngredients.containsKey(drawer)) {
+      return false; // checks if the drawer is present 
     }
-    // now check if the 
-    if(!drawerIngredients.add(ingredient)){
-      // if we try to add an ingredient to the drawer and it is alreadt present then we are going to return false 
+    // if the ingredient is present it is not added again and we return false 
+    if (drawersForIngredients.get(drawer).contains(ingredient)) {
       return false;
     }
-    // now if it is not either of thoses cases we need to put if it is absent and then alsl add to drawer 
+    //if we get this far we are going to add to the drawer the ingredient 
+    drawersForIngredients.get(drawer).add(ingredient);
+    // we also need to update this on the other Map
     ingredientsInDrawers.putIfAbsent(ingredient, new HashSet<>());
-    ingredientsInDrawers.get(ingredient).add(drawer); // adding to the drawer the ingredient 
-    
-    return true; 
-    
+    ingredientsInDrawers.get(ingredient).add(drawer);
+    // returns true if the ingredient is added
+    return true;
   }
+
+
 
   /**
    * Removes an ingredient from a drawer.

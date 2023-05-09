@@ -1,4 +1,4 @@
-package cosc201.utilities;
+package cosc201.a2;
 
 import java.util.ArrayList;
 import java.util.List;

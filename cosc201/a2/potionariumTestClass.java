@@ -1,32 +1,37 @@
 package cosc201.a2;
 
-//import utilities.Timer;
+
 import java.util.*;
 
 public class potionariumTestClass {
 
     private static final Random RANDOM = new Random();
-    public static int numIngredients = 10;
-    public static int numIngredientsPerDrawer = 100; // number of drawers doesnt matter 
     public static int numTrials = 100;
-    public static int numIngredientsToFind = 100;
+    public static final double milli = 1000000;
+    public static final int numDrawers = 1000;
+
+    // variables that will be changed 
+    public static int numIngredientsToFind = 2000;
+    public static int numIngredients = 1000000;
+    public static int numIngredientsPerDrawer = 100;
 
 
     public static void main(String[] args) {
         // Create a Potionarium object
         Potionarium potionarium = new Potionarium();
-        
+
+        // Populate the Potionarium with random ingredients
+        populatePotionarium(potionarium, numIngredients, numIngredientsPerDrawer);
+
+        // Perform trials and record time to get inventory
+        long totalDuration = 0;
         Timer t  = new Timer();
-
-        // Add 100 random ingredients to the Potionarium for testing
-        for (int i = 0; i < numIngredients; i++) {
-            Set<String> ingredientsList = new HashSet<>(Collections.singletonList(generateRandomIngredient()));
-            potionarium.fillDrawer(RANDOM.nextInt(1000), ingredientsList);
+        for (int i = 0; i < numTrials; i++) {
+            t.start();
+            potionarium.getInventory();
+            t.stop();
+            totalDuration += t.getTime();
         }
-
-        System.out.println("Cabinet Inventory:");
-        System.out.println(potionarium.getInventory());
-
         // Create a list of 10 ingredients that are all present in the Potionarium (needs to be random though)
         List<String> ingredientsToCollect = new ArrayList<>(potionarium.getInventory());
         Collections.shuffle(ingredientsToCollect); // this is making it random
@@ -34,16 +39,13 @@ public class potionariumTestClass {
         System.out.println("Ingredients to Collect:");
         System.out.println(ingredientsToCollect);
         
-        StandardSam standardSam = new StandardSam(potionarium);
+        // Calculate and print average time
+        long averageDuration = totalDuration / numTrials;
+        System.out.println((averageDuration/milli));
 
-        // Test the collectIngredients method with 10 ingredients that are all present
-        String result1 = standardSam.collectIngredients(ingredientsToCollect);
-        System.out.println("Case 1: All ingredients are available\n" + result1);
         
-        
-
     }
-
+// method for generaitng random ingredients 
     private static String generateRandomIngredient() {
         int length = 5 + RANDOM.nextInt(6);
         StringBuilder sb = new StringBuilder(length);
@@ -54,5 +56,15 @@ public class potionariumTestClass {
         }
 
         return sb.toString();
+    }
+
+    private static void populatePotionarium(Potionarium potionarium, int numIngredients, int numIngredientsPerDrawer) {
+        for (int i = 0; i < numIngredients; i++) {
+            Set<String> ingredientsList = new HashSet<>();
+            for (int j = 0; j < numIngredientsPerDrawer; j++) {
+                ingredientsList.add(generateRandomIngredient());
+            }
+            potionarium.fillDrawer(RANDOM.nextInt(numDrawers), ingredientsList);
+        }
     }
 }
