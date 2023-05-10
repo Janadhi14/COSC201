@@ -68,7 +68,7 @@ if (!ingredientsMissing.isEmpty()) {
           }
       
          // if all the ingredients are present then we need to a string that will return the order report
-         String orderReport = "";
+         String orderReport = ""; // starting with an empty string 
          for (Map.Entry<Long, List<String>> start : usedDrawers.entrySet()) {
              String ingredientsInDrawer = String.join(", ", start.getValue());
              orderReport += start.getKey() + ": " + ingredientsInDrawer + '\n';

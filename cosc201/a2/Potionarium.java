@@ -57,10 +57,9 @@ the methods*/
    * @return The set of drawers that contain the ingredient.
    */
   public Set<Long> getDrawers(String ingredient) {
-    // need to return a set of drawer numbers containing a given ingredient.
+    // need to return the drawer numbers containing the ingredient.
     // using a getOrDefault method in Map to get the value associated ot the ingredient, and the default value being a new Hashset 
-    // we are doing this so that we can still return a value even if the ingredient is not in the drawers
-    return new HashSet<Long>(ingredientsInDrawers.getOrDefault(ingredient, new HashSet<>()));
+    return new HashSet<Long>(ingredientsInDrawers.getOrDefault(ingredient, new HashSet<>())); // need to create a new hasshset or selse we would break encapsulation ?
   }
 
   /**
@@ -71,7 +70,7 @@ the methods*/
    */
   public Set<String> getIngredients(long drawer) {
     // similar to the get Drawers just for inredients instead
-    return new HashSet<>(drawersForIngredients.getOrDefault(drawer, new HashSet<>()));
+    return new HashSet<>(drawersForIngredients.getOrDefault(drawer, new HashSet<>())); // should create a new hashset because we dont want to modify the existing structure 
   }
 
   /**
@@ -162,20 +161,27 @@ the methods*/
    * @return True if all ingredients were removed, false if one or more were missing.
    */
   public boolean removeIngredients(long drawer, Set<String> ingredients) {
-    // need to remove a set of Ingredients so will need to use a for loop aswell to go through the ingredinets that are in the set 
-    Set<String> drawerIngredients = drawersForIngredients.get(drawer);
-    if (drawerIngredients == null||!drawerIngredients.containsAll(ingredients)) { // need to use contains all cause we are dealing with set of String ingredients (not just one )
-    // returns false if there is nothing or if the ingredient is not in the drawer or if the drawer has been
-
-      return false;
-    }
-    // now we need to go through and for every ingredient in the set of ingredients we need to remove from both maps 
-    for(String ingredient : ingredients) {
-      drawerIngredients.remove(ingredient);
-      ingredientsInDrawers.get(ingredient).remove(drawer);
+    Set<String> ingInDrawer = drawersForIngredients.get(drawer);
+    // checks if the drawer doesnt exist and returns false 
+    if (ingInDrawer == null) {
+        return false;
     }
     
+    // need to iterate through the Set of ingredients and check if it is in the drawer
+    for (String ingredient : ingredients) {
+        if (!ingInDrawer.contains(ingredient)) {
+            return false;
+        }
+    }
+    // another for loop to remove 
+    // now for all the ingredients that are present, we can remove them
+    for (String ingredient : ingredients) {
+        ingInDrawer.remove(ingredient);
+        ingredientsInDrawers.get(ingredient).remove(drawer);
+    }
+    // retunrs true aswell
     return true;
-  }
+}
+
 
 }

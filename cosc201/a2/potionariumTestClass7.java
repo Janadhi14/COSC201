@@ -7,8 +7,7 @@ public class potionariumTestClass7 {
     public static void main(String[] args) {
         Potionarium potionarium;
         Timer t = new Timer();
-        int[] sizes = { 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000
-        };
+        int[] sizes = {2000};
 
         int trials = 100;
 
