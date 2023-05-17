@@ -32,8 +32,10 @@ public class Nonsense1 {
       e.printStackTrace();
     }
   }
-
+// updatefollwing method for pairs of char
   private static void updateFollowing(String word) {
+    //loops from the first character to the third last character. 
+    //This is because it's now considering pairs of characters instead of single characters.
     for(int i = 0; i < word.length() - 2; i++) {
       String key = word.substring(i, i + 2);
       char n = word.charAt(i + 2);
@@ -52,17 +54,17 @@ public class Nonsense1 {
     String key = firstLetters.substring(index, index + 2);
     result.append(key);
     // While the word is not finished, pick a next letter and append it to the result
-    char c;
+    char c;// create a char variable we can use within the do while loop for the next char to append 
       // The do-while loop continues until we append the end of word character ('$')
     do {
-      StringBuilder afterKey = followingLetters.get(key);
+      StringBuilder afterKey = followingLetters.get(key); // need to get the corresponding 2 character combinaton
       c = afterKey.charAt(R.nextInt(afterKey.length()));
-      result.append(c);
+      result.append(c); // append c to the result 
       key = key.charAt(1) + String.valueOf(c);
     } while (c != END_OF_WORD);  // when we reach $ we will break out of the loop
 //
-    result.deleteCharAt(result.length() - 1); // Trim end of word character from end.
-    return result.toString();
+    result.deleteCharAt(result.length() - 1); // Trims the end of word character from end.
+    return result.toString(); // returning the string representaiton of the new randomword 
   }
 
   private static String randomString(int length) {
