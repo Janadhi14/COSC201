@@ -7,7 +7,7 @@ import java.util.Set;
 public class lab06 {
     public static void main(String[] args){
         
-        char[] c = {'A'   };
+        char[] c = {'A',    };
         int n = 600;
         int trials = 100;
         int totalDistinctSubstrings = 0;
