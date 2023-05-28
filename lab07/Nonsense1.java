@@ -32,7 +32,7 @@ public class Nonsense1 {
       e.printStackTrace();
     }
   }
-// updatefollwing method for pairs of char
+// updatefollowing method for pairs of char
   private static void updateFollowing(String word) {
     //loops from the first character to the third last character. 
     //This is because it's now considering pairs of characters instead of single characters.
@@ -41,12 +41,14 @@ public class Nonsense1 {
       char n = word.charAt(i + 2);
       followingLetters.get(key).append(n);
     }
+    // if statement to check for words that are less than 2 in length
     if(word.length() >= 2) {
       String lastPair = word.substring(word.length() - 2);
       followingLetters.get(lastPair).append(END_OF_WORD);
     }
   }
-// new method for random word generating
+  
+// new method for random word generating 
   private static String randomWord() {
     StringBuilder result = new StringBuilder();
     // index variable to randomly select the starting point in the firstLetters
@@ -62,7 +64,7 @@ public class Nonsense1 {
       result.append(c); // append c to the result 
       key = key.charAt(1) + String.valueOf(c);
     } while (c != END_OF_WORD);  // when we reach $ we will break out of the loop
-//
+
     result.deleteCharAt(result.length() - 1); // Trims the end of word character from end.
     return result.toString(); // returning the string representaiton of the new randomword 
   }

@@ -88,7 +88,8 @@ public class CandyStrategy {
     return result;
   }
   
-
+// new method with difference is in the direction of the for loop
+//the loop starts at the end of the string and moves towards the beginning, which means it considers moves that take more candies firs
   private static ArrayList<String> allRichardMoves(String position) {
   ArrayList<String> result = new ArrayList<>();
   char rightEnd = position.charAt(position.length()-1);
